@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  if allItems.length
+    ul
+      each item in allItems
+        li
+          a(href=item.itemUrl) #{item.item_name} 

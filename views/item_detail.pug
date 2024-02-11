@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p <strong>Name:</strong> #{item.item_name}
+  p <strong>Description:</strong> #{item.item_desc}
+  if item.item_category.length
+    p <strong>Category: </strong>
+      each category in item.item_category
+          a(href=`/catalog/category/${category._id}`) #{category.name + ", "}
+
+  hr
+  p
+    a(href=item.itemUrl+"/update") Update Car 
+  p
+    a(href=item.itemUrl+"/delete") Delete Car

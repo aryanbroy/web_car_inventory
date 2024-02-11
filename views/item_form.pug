@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  h1= title
+  form(method='POST')
+
+    div.form-group
+      label(for='item_name') Name:
+      input#item_name.form-control(type='text', placeholder='Ford Endeavour...' name='item_name' required value=(undefined===item ? '' : item.item_name))
+
+    div.form-group
+      label(for="item_desc") Description:
+      input#item_desc.form-control(type="text" required name='item_desc' value=(undefined===item ? '' : item.item_desc)) 
+
+    div.form-group
+      label(for="item_category") Category:
+      select#item_category.form-control(name='item_category' required)
+        if item
+          if item.item_category.length !== 0
+            option(value=item.item_category[0]._id selected) #{item.item_category[0].name} 
+        option(value="") Select a category
+        each category in allCategories
+            option(value=category._id) #{category.name} 
+
+    div.form-group
+      label(for="price") Price (in USD): 
+      input#price.form-control(type="number" name='price' required placeholder=45000 value=(undefined===item ? '' : item.price))
+
+    div.form-group
+      label(for="number_in_stock") Items in stock: 
+      input#number_in_stock.form-control(type="number" name='number_in_stock' placeholder=7 value=(undefined===item ? '' : item.number_in_stock)) 
+  
+    div.form-group
+      label(for="item_url") URL: 
+      input#item_url.form-control(type="text" required name='item_url' value=(undefined===item ? '' : item.item_url)) 
+
+    button.btn.btn-primary(type='submit') Submit
+  hr
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

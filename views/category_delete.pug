@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  br
+  if items.length
+    p <strong>Delete these cars first to delete this category:</strong>
+      ul
+      each item in items
+        li
+          a(href=item.itemUrl) #{item.item_name} 
+  else
+    p Do you really want to delete the category: <strong>#{category.name}</strong>?
+
+    form(method="post") 
+        button.btn.btn-primary(type='submit') Yes

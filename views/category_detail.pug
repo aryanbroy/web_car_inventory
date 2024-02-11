@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  
+  if category
+    h1 Category: #{category.name}
+    p <strong>Name:</strong> #{category.name}
+    p <strong>Description:</strong> #{category.description}
+    a(href=category.url) Learn more about #{category.name} 
+    hr
+    br
+    if items.length
+      h4 Items in this category: 
+      ul
+      each item in items
+        li
+          a(href=item.itemUrl) #{item.item_name} 
+    else
+      p This category has no cars.
+    hr
+    p 
+      a(href=category.catUrl+"/update") Update Category 
+    p 
+      a(href=category.catUrl+"/delete") Delete Category 

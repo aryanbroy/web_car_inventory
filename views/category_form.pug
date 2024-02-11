@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  form(method='POST')
+    div.form-group
+      label(for='name') Name:
+      input#name.form-control(type='text', placeholder='Hyper cars...' name='name' required value=(undefined===category ? '' : category.name))
+    div.form-group
+      label(for="description") Description:
+      input#description.form-control(type="text" required name='description' value=(undefined===category ? '' : category.description)) 
+    div.form-group
+      label(for="item_url") URL: 
+      input#item_url.form-control(type="text" required name='item_url' value=(undefined===category ? '' : category.url)) 
+    button.btn.btn-primary(type='submit') Submit

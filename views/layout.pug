@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    .heading
+      h1#heading Inventory
+    .containes
+      .column
+        button.side-bar(onclick="window.location.href='/'") Dashboard
+        br
+        button.side-bar(onclick="window.location.href='/catalog/categories'") Categories
+        br
+        button.side-bar(onclick="window.location.href='/catalog/items'") Items
+        br
+        button.side-bar(onclick="window.location.href='/catalog/category/create'") Add Category 
+        br
+        button.side-bar(onclick="window.location.href='/catalog/item/create'") Add Items 
+        br
+      .column
+        block content
+    
