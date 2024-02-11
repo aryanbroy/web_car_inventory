@@ -21,7 +21,7 @@ const limiter = RateLimit({
 
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-const mongoDB = "mongodb+srv://aryanbroy:d4NEVMzH4KgJrbLQ@cluster0.vwr08fs.mongodb.net/inventory?retryWrites=true&w=majority";
+const mongoDB = process.env.DB_URI;
 
 main().catch((err) => console.log(err));
 async function main() {
